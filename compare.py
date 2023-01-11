@@ -3,7 +3,7 @@ import math
 import librosa
 import numpy as nd
 #song=input('enter song name')
-signal,rate=librosa.load('rock.00001.wav')
+signal,rate=librosa.load('test3.wav')
 
 #chroma shift
 chroma_shift= librosa.feature.chroma_stft(signal)
@@ -186,5 +186,23 @@ for i in range(0,size):
         dis=dis+diff[i*21+j]
     square=math.sqrt(dis)
     distance.append(square)
-print(distance)
+no_of_songs_indataset=10 
+
+l_distance=min(distance)
+print(l_distance)
+position=1
+for i in range(len(distance)):
+    if distance[i]==l_distance:
+        print(position)
+        break
+    else:
+        position=position+1
+if position<=1*no_of_songs_indataset:
+    print('genre1')
+elif position<=2*no_of_songs_indataset:
+    print('genre2')
+elif position<=3*no_of_songs_indataset:
+    print('genre3')
+elif position<=4*no_of_songs_indataset:
+    print('genre4')
 
