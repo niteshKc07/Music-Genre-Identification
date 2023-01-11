@@ -2,8 +2,9 @@ import csv
 import math
 import librosa
 import numpy as nd
+genre=['adhunik','bhajan','dohari','selo']
 #song=input('enter song name')
-signal,rate=librosa.load('test3.wav')
+signal,rate=librosa.load('test.wav')
 
 #chroma shift
 chroma_shift= librosa.feature.chroma_stft(signal)
@@ -198,11 +199,11 @@ for i in range(len(distance)):
     else:
         position=position+1
 if position<=1*no_of_songs_indataset:
-    print('genre1')
+    print(genre[1])
 elif position<=2*no_of_songs_indataset:
-    print('genre2')
+    print(genre[2])
 elif position<=3*no_of_songs_indataset:
-    print('genre3')
+    print(genre[3])
 elif position<=4*no_of_songs_indataset:
-    print('genre4')
+    print(genre[4])
 
