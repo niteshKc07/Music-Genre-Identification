@@ -3,9 +3,9 @@ import math
 import librosa
 import numpy as nd
 genre=['adhunik','bhajan','dohari','selo']
-#song=input('enter song name')
+
 def classifier(filename):
-    signal,rate=librosa.load('test.wav')
+    signal,rate=librosa.load(filename)
     #chroma shift
     chroma_shift= librosa.feature.chroma_stft(signal)
     chroma_shift_mean=nd.average(chroma_shift)
@@ -193,15 +193,15 @@ def classifier(filename):
     position=1
     for i in range(len(distance)):
         if distance[i]==l_distance:
+            print(position)
             break
         else:
             position=position+1
     if position<=1*no_of_songs_indataset:
-        return(genre[1])
+        return(genre[0])
     elif position<=2*no_of_songs_indataset:
-        return(genre[2])
+        return(genre[1])
     elif position<=3*no_of_songs_indataset:
-        return(genre[3])
+        return(genre[2])
     elif position<=4*no_of_songs_indataset:
-        return(genre[4])
-
+        return(genre[3])
